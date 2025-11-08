@@ -22,7 +22,7 @@ export default function GridProductCard({ product }: GridProductCardProps) {
   };
 
   return (
-    <div onClick={handleClick} className="bg-white rounded-lg border border-gray-200 overflow-hidden cursor-pointer hover:shadow-md transition-shadow">
+    <div onClick={handleClick} className="bg-white rounded-lg border border-gray-200 overflow-hidden cursor-pointer hover:bg-gray-50 transition-colors">
       <div className="relative">
         <ProductThumbnail product={product} className="w-full aspect-square" />
         {hasNFT(product) && (

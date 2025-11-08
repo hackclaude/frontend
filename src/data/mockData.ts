@@ -35,7 +35,7 @@ export const mockProducts: Product[] = [
     category: 'laptop',
     name: '맥북 프로 16인치',
     description: '맥북 프로 16인치 M2 Max 32GB',
-    price: 6974000,
+    price: 1950000,
     attributes: {
       hasNFT: true,
       thumbnailUrl: 'https://www.apple.com/v/macbook-pro/at/images/overview/welcome/hero_endframe__e4ls9pihykya_xlarge.jpg',

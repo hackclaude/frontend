@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { Send } from 'lucide-react';
 
 interface ChatInputProps {
@@ -8,6 +8,7 @@ interface ChatInputProps {
 
 export default function ChatInput({ onSend, disabled = false }: ChatInputProps) {
   const [message, setMessage] = useState('');
+  const isComposingRef = useRef(false);
 
   const handleSend = () => {
     if (!message.trim() || disabled) return;
@@ -17,10 +18,18 @@ export default function ChatInput({ onSend, disabled = false }: ChatInputProps) 
   };
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === 'Enter' && !e.shiftKey) {
+    if (e.key === 'Enter' && !e.shiftKey && !isComposingRef.current) {
       e.preventDefault();
       handleSend();
     }
+  };
+
+  const handleCompositionStart = () => {
+    isComposingRef.current = true;
+  };
+
+  const handleCompositionEnd = () => {
+    isComposingRef.current = false;
   };
 
   return (
@@ -31,6 +40,8 @@ export default function ChatInput({ onSend, disabled = false }: ChatInputProps) 
           value={message}
           onChange={(e) => setMessage(e.target.value)}
           onKeyDown={handleKeyDown}
+          onCompositionStart={handleCompositionStart}
+          onCompositionEnd={handleCompositionEnd}
           placeholder="메시지를 입력하세요"
           disabled={disabled}
           className="flex-1 px-4 py-2.5 border border-gray-300 rounded-full focus:outline-none focus:border-violet-500 disabled:bg-gray-100 disabled:cursor-not-allowed"
