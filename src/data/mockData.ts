@@ -12,7 +12,7 @@ export const mockProducts: Product[] = [
     attributes: {
       hasNFT: true,
       verifiedBrand: 'Apple',
-      thumbnailUrl: 'https://via.placeholder.com/400x400/A78BFA/FFFFFF?text=iPhone+14+Pro',
+      thumbnailUrl: 'https://placehold.co/400x400/A78BFA/FFFFFF/png?text=iPhone+14+Pro',
       location: '강남구',
       liked: false,
     },
@@ -32,7 +32,7 @@ export const mockProducts: Product[] = [
     attributes: {
       hasNFT: true,
       verifiedBrand: 'Apple',
-      thumbnailUrl: 'https://via.placeholder.com/400x400/818CF8/FFFFFF?text=MacBook+Pro',
+      thumbnailUrl: 'https://placehold.co/400x400/818CF8/FFFFFF/png?text=MacBook+Pro',
       location: '서초구',
       liked: true,
     },
@@ -51,7 +51,7 @@ export const mockProducts: Product[] = [
     price: 180000,
     attributes: {
       hasNFT: false,
-      thumbnailUrl: 'https://via.placeholder.com/400x400/C084FC/FFFFFF?text=AirPods+Pro',
+      thumbnailUrl: 'https://placehold.co/400x400/C084FC/FFFFFF/png?text=AirPods+Pro',
       location: '송파구',
       liked: false,
     },
@@ -71,7 +71,7 @@ export const mockProducts: Product[] = [
     attributes: {
       hasNFT: true,
       verifiedBrand: 'Samsung',
-      thumbnailUrl: 'https://via.placeholder.com/400x400/A855F7/FFFFFF?text=Galaxy+Tab+S9',
+      thumbnailUrl: 'https://placehold.co/400x400/A855F7/FFFFFF/png?text=Galaxy+Tab+S9',
       location: '강남구',
       liked: false,
     },
@@ -91,7 +91,7 @@ export const mockProducts: Product[] = [
     attributes: {
       hasNFT: true,
       verifiedBrand: 'Apple',
-      thumbnailUrl: 'https://via.placeholder.com/400x400/D8B4FE/FFFFFF?text=iPad+Air',
+      thumbnailUrl: 'https://placehold.co/400x400/D8B4FE/FFFFFF/png?text=iPad+Air',
       location: '마포구',
       liked: false,
     },
@@ -110,7 +110,7 @@ export const mockProducts: Product[] = [
     price: 320000,
     attributes: {
       hasNFT: false,
-      thumbnailUrl: 'https://via.placeholder.com/400x400/C084FC/FFFFFF?text=Samsung+Monitor',
+      thumbnailUrl: 'https://placehold.co/400x400/C084FC/FFFFFF/png?text=Samsung+Monitor',
       location: '강남구',
       liked: true,
     },
