@@ -65,7 +65,7 @@ export default function HomePage() {
 
         {/* 찜한 상품 - 그리드 형식 */}
         <section id="liked" className="mt-8">
-          <SectionHeader icon={Heart} title="찜한 상품" />
+          <SectionHeader icon={Heart} title="찜한 상품" actionLabel="더보기" onActionClick={() => handleNavigateToCategory('liked')} />
           <div className="grid grid-cols-2 gap-3 px-4">
             {mockProducts
               .filter((p) => isLiked(p))

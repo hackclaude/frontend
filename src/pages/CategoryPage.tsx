@@ -3,8 +3,9 @@ import { useParams, useNavigate } from 'react-router';
 import { ChevronLeft, Grid3x3, List, ChevronDown } from 'lucide-react';
 import ProductCard from '@/components/products/ProductCard';
 import GridProductCard from '@/components/products/GridProductCard';
-import { useLayoutContext } from '@/components/MobileLayout';
+import { useLayoutContext } from '@/hooks/useLayoutContext';
 import { mockProducts } from '@/data/mockData';
+import { isLiked } from '@/utils/productUtils';
 
 type LayoutMode = 'grid' | 'list';
 type SortOption = 'latest' | 'price-low' | 'price-high';
@@ -32,6 +33,17 @@ export default function CategoryPage() {
 
   const categoryLabel = categoryId ? CATEGORY_LABELS[categoryId] : '카테고리';
 
+  // Check if categoryId is valid
+  const isValidCategory = categoryId && categoryId in CATEGORY_LABELS;
+
+  // Redirect to home if invalid category
+  useEffect(() => {
+    if (!isValidCategory) {
+      navigate('/', { replace: true });
+      return;
+    }
+  }, [isValidCategory, navigate]);
+
   // Hide header and bottom nav when component mounts, show them when unmounts
   useEffect(() => {
     hideHeader(true);
@@ -44,17 +56,22 @@ export default function CategoryPage() {
 
   // Filter products by category
   const filteredProducts = useMemo(() => {
+    if (!isValidCategory) {
+      return [];
+    }
+
     let products = [...mockProducts];
 
     // Filter based on categoryId
     if (categoryId === 'nft-verified') {
       products = products.filter((p) => p.attributes?.hasNFT === true);
+    } else if (categoryId === 'liked') {
+      products = products.filter((p) => isLiked(p));
     }
-    // For 'ai-recommend', 'recent', 'liked' - show all products for now
-    // TODO: Implement actual filtering logic based on AI recommendations, recent views, likes
+    // For 'ai-recommend', 'recent', and other categories, show all products (default behavior)
 
     return products;
-  }, [categoryId]);
+  }, [categoryId, isValidCategory]);
 
   // Sort products
   const sortedProducts = useMemo(() => {
@@ -88,7 +105,7 @@ export default function CategoryPage() {
   return (
     <div className="-mx-4 -mt-4">
       {/* Header */}
-      <div className="bg-white border-b border-gray-200 px-4 py-3">
+      <div className="bg-white border-b border-gray-200 px-4 py-3 sticky top-0 z-10">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
             <button type="button" onClick={handleBack} className="text-gray-600 hover:text-gray-900" aria-label="뒤로 가기">

@@ -1,13 +1,25 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Sparkle } from 'lucide-react';
 import LoginForm from '@/components/auth/LoginForm';
 import SignupForm from '@/components/auth/SignupForm';
+import { useLayoutContext } from '@/hooks/useLayoutContext';
 
 export default function AuthPage() {
   const [mode, setMode] = useState<'login' | 'signup'>('login');
+  const { hideHeader, hideBottomNav } = useLayoutContext();
+
+  // Hide header and bottom nav when component mounts, show them when unmounts
+  useEffect(() => {
+    hideHeader(true);
+    hideBottomNav(true);
+    return () => {
+      hideHeader(false);
+      hideBottomNav(false);
+    };
+  }, [hideHeader, hideBottomNav]);
 
   return (
-    <div className="min-h-screen bg-zinc-200 flex justify-center">
+    <div className="-m-4 min-h-screen bg-zinc-200 flex justify-center">
       <div className="w-full max-w-[480px] min-h-screen bg-white flex flex-col">
         {/* Header */}
         <div className="pt-12 pb-8 px-6 text-center">
