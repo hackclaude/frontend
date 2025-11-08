@@ -13,7 +13,7 @@ export default function ProductCard({ product }: ProductCardProps) {
   const navigate = useNavigate();
 
   const handleClick = () => {
-    navigate(`/product/${product.uuid}`, { viewTransition: true });
+    navigate(`/product/${product.uuid}`);
   };
 
   const handleLikeClick = (e: React.MouseEvent) => {

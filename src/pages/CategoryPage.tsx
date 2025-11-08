@@ -90,7 +90,7 @@ export default function CategoryPage() {
   }, [filteredProducts, sortOption]);
 
   const handleBack = () => {
-    navigate('/', { viewTransition: true });
+    navigate('/');
   };
 
   const toggleLayout = () => {

@@ -22,7 +22,7 @@ export default function HomePage() {
   };
 
   const handleNavigateToCategory = (categoryId: string) => {
-    navigate(`/category/${categoryId}`, { viewTransition: true });
+    navigate(`/category/${categoryId}`);
   };
 
   const nftVerifiedProducts = mockProducts.filter((p) => hasNFT(p));
