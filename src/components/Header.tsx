@@ -1,11 +1,16 @@
 import { Search, Sparkles } from 'lucide-react';
-import { Link, useLocation } from 'react-router';
+import { Link, useLocation, useNavigate } from 'react-router';
 import { navItems } from '@/constants/navigation';
 
 export default function Header() {
   const location = useLocation();
+  const navigate = useNavigate();
   const isHome = location.pathname === '/';
   const currentPage = navItems.find((item) => item.to === location.pathname);
+
+  const handleSearchClick = () => {
+    navigate('/search');
+  };
 
   if (isHome) {
     return (
@@ -17,7 +22,7 @@ export default function Header() {
           </Link>
 
           <div className="flex items-center gap-3">
-            <button type="button" className="p-2 text-gray-600 hover:text-gray-900 hover:bg-violet-50 rounded-full transition-colors" aria-label="검색">
+            <button type="button" onClick={handleSearchClick} className="p-2 text-gray-600 hover:text-gray-900 hover:bg-violet-50 rounded-full transition-colors" aria-label="검색">
               <Search size={22} />
             </button>
           </div>

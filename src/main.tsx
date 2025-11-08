@@ -5,6 +5,7 @@ import MobileLayout from '@/components/MobileLayout';
 import ProductDetailPage from '@/pages/ProductDetailPage';
 import CategoryPage from '@/pages/CategoryPage';
 import AuthPage from '@/pages/AuthPage';
+import SearchPage from '@/pages/SearchPage';
 import { navItems } from '@/constants/navigation';
 import './index.css';
 
@@ -27,6 +28,10 @@ const router = createBrowserRouter([
       {
         path: '/auth',
         element: <AuthPage />,
+      },
+      {
+        path: '/search',
+        element: <SearchPage />,
       },
     ],
   },
