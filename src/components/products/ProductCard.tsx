@@ -20,7 +20,7 @@ export default function ProductCard({ product }: ProductCardProps) {
         <p className="text-sm text-gray-500 mt-1">{getLocation(product)}</p>
         <p className="text-violet-600 font-bold mt-1">{product.price.toLocaleString()}원</p>
       </div>
-      <button type="button" className="shrink-0" aria-label="찜하기">
+      <button type="button" className="shrink-0 pr-1" aria-label="찜하기">
         <Heart size={20} className={isLiked(product) ? 'fill-red-500 text-red-500' : 'text-gray-400'} />
       </button>
     </div>
