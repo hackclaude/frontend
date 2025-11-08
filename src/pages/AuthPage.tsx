@@ -20,24 +20,6 @@ export default function AuthPage() {
           <p className="text-sm text-gray-600">블록체인 기반 중고거래 플랫폼</p>
         </div>
 
-        {/* Tab Switcher */}
-        <div className="px-6 mb-6">
-          <div className="flex bg-gray-100 p-1 rounded-lg">
-            <button
-              type="button"
-              onClick={() => setMode('login')}
-              className={`flex-1 py-2 text-sm font-semibold rounded-md transition-colors ${mode === 'login' ? 'bg-white text-violet-600 shadow-sm' : 'text-gray-600 hover:text-gray-900'}`}>
-              로그인
-            </button>
-            <button
-              type="button"
-              onClick={() => setMode('signup')}
-              className={`flex-1 py-2 text-sm font-semibold rounded-md transition-colors ${mode === 'signup' ? 'bg-white text-violet-600 shadow-sm' : 'text-gray-600 hover:text-gray-900'}`}>
-              회원가입
-            </button>
-          </div>
-        </div>
-
         {/* Form Container */}
         <div className="flex-1 px-6 pb-8">{mode === 'login' ? <LoginForm onSwitchToSignup={() => setMode('signup')} /> : <SignupForm onSwitchToLogin={() => setMode('login')} />}</div>
       </div>
