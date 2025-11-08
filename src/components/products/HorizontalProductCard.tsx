@@ -8,10 +8,23 @@ interface HorizontalProductCardProps {
 }
 
 export default function HorizontalProductCard({ product }: HorizontalProductCardProps) {
+  const isSold = product.status === 'Sold';
+
   return (
     <div className="bg-white rounded-lg border border-gray-200 overflow-hidden w-[140px] shrink-0">
       <div className="relative">
-        <div className="w-full h-[140px]" style={{ backgroundColor: getThumbnailColor(product) }} />
+        <div
+          className="w-full h-[140px]"
+          style={{
+            backgroundColor: getThumbnailColor(product),
+            opacity: isSold ? 0.5 : 1,
+          }}
+        />
+        {isSold && (
+          <div className="absolute inset-0 flex items-center justify-center">
+            <span className="text-xs font-bold text-gray-900 bg-white px-2 py-1 rounded">판매완료</span>
+          </div>
+        )}
         {hasNFT(product) && (
           <div className="absolute top-2 left-2">
             <NFTBadge />

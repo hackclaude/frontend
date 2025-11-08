@@ -8,9 +8,24 @@ interface ProductCardProps {
 }
 
 export default function ProductCard({ product }: ProductCardProps) {
+  const isSold = product.status === 'Sold';
+
   return (
     <div className="flex gap-3 p-3 bg-white rounded-lg border border-gray-200">
-      <div className="w-20 h-20 rounded-lg shrink-0" style={{ backgroundColor: getThumbnailColor(product) }} />
+      <div className="relative w-20 h-20 rounded-lg shrink-0">
+        <div
+          className="w-full h-full rounded-lg"
+          style={{
+            backgroundColor: getThumbnailColor(product),
+            opacity: isSold ? 0.5 : 1,
+          }}
+        />
+        {isSold && (
+          <div className="absolute inset-0 flex items-center justify-center">
+            <span className="text-xs font-bold text-gray-900 bg-white px-2 py-1 rounded">판매완료</span>
+          </div>
+        )}
+      </div>
       <div className="flex-1 min-w-0">
         <h3 className="font-semibold text-gray-900 truncate">{product.name}</h3>
         {hasNFT(product) && (

@@ -1,5 +1,5 @@
 // Product status type (matches backend enum)
-export type ProductStatus = 'Available' | 'OutOfStock' | 'Discontinued';
+export type ProductStatus = 'Available' | 'Sold';
 
 // Backend Product entity (matches TypeORM schema)
 export interface Product {

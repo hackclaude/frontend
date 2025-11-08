@@ -8,10 +8,23 @@ interface GridProductCardProps {
 }
 
 export default function GridProductCard({ product }: GridProductCardProps) {
+  const isSold = product.status === 'Sold';
+
   return (
     <div className="bg-white rounded-lg border border-gray-200 overflow-hidden">
       <div className="relative">
-        <div className="w-full aspect-square" style={{ backgroundColor: getThumbnailColor(product) }} />
+        <div
+          className="w-full aspect-square"
+          style={{
+            backgroundColor: getThumbnailColor(product),
+            opacity: isSold ? 0.5 : 1,
+          }}
+        />
+        {isSold && (
+          <div className="absolute inset-0 flex items-center justify-center">
+            <span className="text-sm font-bold text-gray-900 bg-white px-3 py-1.5 rounded">판매완료</span>
+          </div>
+        )}
         {hasNFT(product) && (
           <div className="absolute top-2 left-2">
             <NFTBadge />
