@@ -38,7 +38,7 @@ export default function ProfilePage() {
   return (
     <div className="-mx-4 -mt-4">
       {/* 프로필 섹션 */}
-      <div className="px-6 pt-8 pb-6 bg-white border-b border-gray-200">
+      <div className="px-6 pt-8 pb-6 bg-gray-50 border-b border-gray-200">
         <div className="flex items-center gap-4 mb-6">
           <div className="relative">
             <div className="w-20 h-20 rounded-full bg-linear-to-br from-violet-400 to-violet-600 flex items-center justify-center text-white text-2xl font-bold">{isLoggedIn ? '홍' : 'G'}</div>

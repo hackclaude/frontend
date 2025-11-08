@@ -35,11 +35,14 @@ export const mockProducts: Product[] = [
     category: 'laptop',
     name: '맥북 프로 16인치',
     description: '맥북 프로 16인치 M2 Max 32GB',
-    price: 2500000,
+    price: 6974000,
     attributes: {
       hasNFT: true,
-      thumbnailUrl: 'https://placehold.co/400x400/818CF8/FFFFFF/png?text=MacBook+Pro',
-      imageUrls: ['https://placehold.co/400x400/818CF8/FFFFFF/png?text=MacBook+Pro', 'https://placehold.co/400x400/818CF8/FFFFFF/png?text=MacBook+Pro+2'],
+      thumbnailUrl: 'https://www.apple.com/v/macbook-pro/at/images/overview/welcome/hero_endframe__e4ls9pihykya_xlarge.jpg',
+      imageUrls: [
+        'https://www.apple.com/v/macbook-pro/at/images/overview/welcome/hero_endframe__e4ls9pihykya_xlarge.jpg',
+        'https://www.apple.com/v/macbook-pro/at/images/overview/welcome/hero_endframe__e4ls9pihykya_xlarge.jpg',
+      ],
       location: '서초구',
       liked: true,
       likesCount: 32,
