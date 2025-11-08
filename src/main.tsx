@@ -3,10 +3,15 @@ import { createRoot } from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router';
 import MobileLayout from '@/components/MobileLayout';
 import ProductDetailPage from '@/pages/ProductDetailPage';
+import AuthPage from '@/pages/AuthPage';
 import { navItems } from '@/constants/navigation';
 import './index.css';
 
 const router = createBrowserRouter([
+  {
+    path: '/auth',
+    element: <AuthPage />,
+  },
   {
     element: <MobileLayout />,
     children: [
