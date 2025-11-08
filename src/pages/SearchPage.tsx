@@ -55,6 +55,12 @@ export default function SearchPage() {
     setSearchHistory(getSearchHistory());
   }, []);
 
+  // Sync search input with URL query parameter
+  useEffect(() => {
+    const query = searchParams.get('q') || '';
+    setSearchQuery(query);
+  }, [searchParams]);
+
   const handleBack = () => {
     navigate(-1);
   };
@@ -178,7 +184,7 @@ export default function SearchPage() {
                 </div>
                 <div className="flex flex-wrap gap-2">
                   {searchHistory.map((query) => (
-                    <div key={query} className="flex items-center gap-1 px-3 py-1.5 bg-gray-100 rounded-full text-sm">
+                    <div key={query} className="flex items-center gap-1 px-3 py-1.5 bg-gray-200 rounded-full text-sm">
                       <button type="button" onClick={() => handleHistoryClick(query)} className="text-gray-700 hover:text-gray-900">
                         {query}
                       </button>
