@@ -22,7 +22,7 @@ export default function ProfilePage() {
   return (
     <div className="-mx-4 -mt-4">
       {/* 프로필 섹션 */}
-      <div className="p-6 border-b border-gray-200">
+      <div className="p-6 bg-gray-50 border-b border-gray-200">
         <div className="flex items-center gap-4">
           <div className="w-16 h-16 rounded-full bg-gradient-to-br from-violet-400 to-violet-600 flex items-center justify-center text-white text-xl font-bold">
             홍
@@ -35,7 +35,7 @@ export default function ProfilePage() {
       </div>
 
       {/* 내 상품 관리 섹션 */}
-      <div className="mt-2">
+      <div className="mt-2 bg-gray-50">
         <div className="px-4 py-3 border-b border-gray-200">
           <h3 className="text-sm font-semibold text-gray-500">내 상품 관리</h3>
         </div>
@@ -44,7 +44,7 @@ export default function ProfilePage() {
       </div>
 
       {/* 설정 섹션 */}
-      <div className="mt-2">
+      <div className="mt-2 bg-gray-50">
         <div className="px-4 py-3 border-b border-gray-200">
           <h3 className="text-sm font-semibold text-gray-500">설정</h3>
         </div>
@@ -52,7 +52,7 @@ export default function ProfilePage() {
       </div>
 
       {/* 약관 및 정책 섹션 */}
-      <div className="mt-2 mb-4">
+      <div className="mt-2 mb-4 bg-gray-50">
         <div className="px-4 py-3 border-b border-gray-200">
           <h3 className="text-sm font-semibold text-gray-500">약관 및 정책</h3>
         </div>
