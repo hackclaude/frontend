@@ -6,7 +6,8 @@ import ProductCard from '@/components/products/ProductCard';
 import GridProductCard from '@/components/products/GridProductCard';
 import HorizontalProductCard from '@/components/products/HorizontalProductCard';
 import { useScrollToAnchor } from '@/hooks/useScrollToAnchor';
-import { mockProducts, categorySections } from '@/data/mockData';
+import { mockProducts } from '@/data/mockData';
+import { categorySections } from '@/constants/navigation';
 import { hasNFT, isLiked } from '@/utils/productUtils';
 
 export default function HomePage() {

@@ -11,7 +11,7 @@ interface SectionHeaderProps {
 export default function SectionHeader({ icon: Icon, title, actionLabel, onActionClick }: SectionHeaderProps) {
   return (
     <div className="flex items-center justify-between px-4 mb-1">
-      <div className="flex items-center gap-2">
+      <div className="flex items-center gap-2 mb-1">
         <Icon size={20} className="text-violet-600" />
         <h2 className="text-lg font-bold text-gray-900">{title}</h2>
       </div>

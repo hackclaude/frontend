@@ -15,10 +15,10 @@ export function getVerifiedBrand(product: Product): string | undefined {
 }
 
 /**
- * Product에서 썸네일 색상 가져오기
+ * Product에서 썸네일 URL 가져오기
  */
-export function getThumbnailColor(product: Product): string | undefined {
-  return product.attributes?.thumbnailColor;
+export function getThumbnailUrl(product: Product): string | undefined {
+  return product.attributes?.thumbnailUrl;
 }
 
 /**

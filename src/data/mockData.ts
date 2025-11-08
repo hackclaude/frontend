@@ -12,7 +12,7 @@ export const mockProducts: Product[] = [
     attributes: {
       hasNFT: true,
       verifiedBrand: 'Apple',
-      thumbnailColor: '#A78BFA',
+      thumbnailUrl: 'https://via.placeholder.com/400x400/A78BFA/FFFFFF?text=iPhone+14+Pro',
       location: '강남구',
       liked: false,
     },
@@ -32,7 +32,7 @@ export const mockProducts: Product[] = [
     attributes: {
       hasNFT: true,
       verifiedBrand: 'Apple',
-      thumbnailColor: '#818CF8',
+      thumbnailUrl: 'https://via.placeholder.com/400x400/818CF8/FFFFFF?text=MacBook+Pro',
       location: '서초구',
       liked: true,
     },
@@ -51,7 +51,7 @@ export const mockProducts: Product[] = [
     price: 180000,
     attributes: {
       hasNFT: false,
-      thumbnailColor: '#C084FC',
+      thumbnailUrl: 'https://via.placeholder.com/400x400/C084FC/FFFFFF?text=AirPods+Pro',
       location: '송파구',
       liked: false,
     },
@@ -71,7 +71,7 @@ export const mockProducts: Product[] = [
     attributes: {
       hasNFT: true,
       verifiedBrand: 'Samsung',
-      thumbnailColor: '#A855F7',
+      thumbnailUrl: 'https://via.placeholder.com/400x400/A855F7/FFFFFF?text=Galaxy+Tab+S9',
       location: '강남구',
       liked: false,
     },
@@ -91,7 +91,7 @@ export const mockProducts: Product[] = [
     attributes: {
       hasNFT: true,
       verifiedBrand: 'Apple',
-      thumbnailColor: '#D8B4FE',
+      thumbnailUrl: 'https://via.placeholder.com/400x400/D8B4FE/FFFFFF?text=iPad+Air',
       location: '마포구',
       liked: false,
     },
@@ -110,7 +110,7 @@ export const mockProducts: Product[] = [
     price: 320000,
     attributes: {
       hasNFT: false,
-      thumbnailColor: '#C084FC',
+      thumbnailUrl: 'https://via.placeholder.com/400x400/C084FC/FFFFFF?text=Samsung+Monitor',
       location: '강남구',
       liked: true,
     },
@@ -119,11 +119,4 @@ export const mockProducts: Product[] = [
     updated_at: '2025-01-06T00:00:00Z',
     deleted_at: null,
   },
-];
-
-export const categorySections = [
-  { id: 'ai-recommend', label: 'AI 추천' },
-  { id: 'nft-verified', label: 'NFT 인증' },
-  { id: 'recent', label: '최근 본 상품' },
-  { id: 'liked', label: '찜한 상품' },
 ];

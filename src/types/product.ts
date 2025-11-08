@@ -26,7 +26,7 @@ export interface ProductAttributes {
   blockchainNetwork?: string;
 
   // UI related (will be stored in backend too)
-  thumbnailColor?: string;
+  thumbnailUrl?: string;
   location?: string;
   liked?: boolean;
 

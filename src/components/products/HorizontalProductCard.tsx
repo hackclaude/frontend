@@ -1,6 +1,6 @@
 import { Heart } from 'lucide-react';
 import type { Product } from '@/types/product';
-import { hasNFT, getThumbnailColor, isLiked } from '@/utils/productUtils';
+import { hasNFT, getThumbnailUrl, isLiked } from '@/utils/productUtils';
 import NFTBadge from './NFTBadge';
 
 interface HorizontalProductCardProps {
@@ -13,12 +13,11 @@ export default function HorizontalProductCard({ product }: HorizontalProductCard
   return (
     <div className="bg-white rounded-lg border border-gray-200 overflow-hidden w-[140px] shrink-0">
       <div className="relative">
-        <div
-          className="w-full h-[140px]"
-          style={{
-            backgroundColor: getThumbnailColor(product),
-            opacity: isSold ? 0.5 : 1,
-          }}
+        <img
+          src={getThumbnailUrl(product)}
+          alt={product.name}
+          className="w-full h-[140px] object-cover"
+          style={{ opacity: isSold ? 0.5 : 1 }}
         />
         {isSold && (
           <div className="absolute inset-0 flex items-center justify-center">
