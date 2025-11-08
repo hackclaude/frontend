@@ -1,5 +1,4 @@
 import type { Product } from '@/types/product';
-import { ProductStatus } from '@/types/product';
 
 export const mockProducts: Product[] = [
   {
@@ -17,7 +16,7 @@ export const mockProducts: Product[] = [
       location: '강남구',
       liked: false,
     },
-    status: ProductStatus.Available,
+    status: 'Available',
     created_at: '2025-01-01T00:00:00Z',
     updated_at: '2025-01-01T00:00:00Z',
     deleted_at: null,
@@ -37,7 +36,7 @@ export const mockProducts: Product[] = [
       location: '서초구',
       liked: true,
     },
-    status: ProductStatus.Available,
+    status: 'Available',
     created_at: '2025-01-02T00:00:00Z',
     updated_at: '2025-01-02T00:00:00Z',
     deleted_at: null,
@@ -56,7 +55,7 @@ export const mockProducts: Product[] = [
       location: '송파구',
       liked: false,
     },
-    status: ProductStatus.Available,
+    status: 'Available',
     created_at: '2025-01-03T00:00:00Z',
     updated_at: '2025-01-03T00:00:00Z',
     deleted_at: null,
@@ -76,7 +75,7 @@ export const mockProducts: Product[] = [
       location: '강남구',
       liked: false,
     },
-    status: ProductStatus.Available,
+    status: 'Available',
     created_at: '2025-01-04T00:00:00Z',
     updated_at: '2025-01-04T00:00:00Z',
     deleted_at: null,
@@ -96,7 +95,7 @@ export const mockProducts: Product[] = [
       location: '마포구',
       liked: false,
     },
-    status: ProductStatus.Available,
+    status: 'Available',
     created_at: '2025-01-05T00:00:00Z',
     updated_at: '2025-01-05T00:00:00Z',
     deleted_at: null,
@@ -115,7 +114,7 @@ export const mockProducts: Product[] = [
       location: '강남구',
       liked: true,
     },
-    status: ProductStatus.Available,
+    status: 'Available',
     created_at: '2025-01-06T00:00:00Z',
     updated_at: '2025-01-06T00:00:00Z',
     deleted_at: null,
