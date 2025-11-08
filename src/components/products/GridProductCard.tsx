@@ -1,5 +1,6 @@
 import { Heart } from 'lucide-react';
 import type { Product } from '@/types/product';
+import NFTBadge from './NFTBadge';
 
 interface GridProductCardProps {
   product: Product;
@@ -10,6 +11,11 @@ export default function GridProductCard({ product }: GridProductCardProps) {
     <div className="bg-white rounded-lg border border-gray-200 overflow-hidden">
       <div className="relative">
         <div className="w-full aspect-square" style={{ backgroundColor: product.color }} />
+        {product.hasNFT && (
+          <div className="absolute top-2 left-2">
+            <NFTBadge />
+          </div>
+        )}
         <button type="button" className="absolute top-2 right-2 p-1.5 bg-white/90 rounded-full" aria-label="찜하기">
           <Heart size={18} className={product.liked ? 'fill-red-500 text-red-500' : 'text-gray-400'} />
         </button>

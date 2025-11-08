@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Bot, Clock, Heart, MapPin } from 'lucide-react';
+import { Bot, Clock, Heart, ShieldCheck } from 'lucide-react';
 import CategoryTabs from '@/components/home/CategoryTabs';
 import SectionHeader from '@/components/home/SectionHeader';
 import ProductCard from '@/components/products/ProductCard';
@@ -17,6 +17,8 @@ export default function HomePage() {
     scrollToAnchor(tabId);
   };
 
+  const nftVerifiedProducts = mockProducts.filter((p) => p.hasNFT);
+
   return (
     <div className="-mx-4 -mt-4">
       <CategoryTabs tabs={categorySections} activeTab={activeTab} onTabClick={handleTabClick} />
@@ -28,6 +30,17 @@ export default function HomePage() {
           <div className="flex gap-3 px-4 overflow-x-auto scrollbar-hide">
             {mockProducts.map((product) => (
               <HorizontalProductCard key={product.id} product={product} />
+            ))}
+          </div>
+        </section>
+
+        {/* NFT 인증 상품 - 그리드 형식 */}
+        <section id="nft-verified" className="mt-8">
+          <SectionHeader icon={ShieldCheck} title="NFT 정품 인증" actionLabel="더보기" />
+          <p className="px-4 text-sm text-gray-600 mb-4">블록체인으로 검증된 100% 정품만 모아봤어요</p>
+          <div className="grid grid-cols-2 gap-3 px-4">
+            {nftVerifiedProducts.map((product) => (
+              <GridProductCard key={product.id} product={product} />
             ))}
           </div>
         </section>
@@ -51,24 +64,6 @@ export default function HomePage() {
               .map((product) => (
                 <GridProductCard key={product.id} product={product} />
               ))}
-          </div>
-        </section>
-
-        {/* 근처 직거래 - 리스트 형식 */}
-        <section id="nearby" className="mt-8">
-          <div className="flex items-center justify-between px-4 mb-4">
-            <div className="flex items-center gap-2">
-              <MapPin size={20} className="text-violet-600" />
-              <h2 className="text-lg font-bold text-gray-900">근처 직거래</h2>
-            </div>
-            <button type="button" className="text-sm text-violet-600 font-medium">
-              지역 설정
-            </button>
-          </div>
-          <div className="space-y-3 px-4">
-            {mockProducts.slice(0, 4).map((product) => (
-              <ProductCard key={product.id} product={product} />
-            ))}
           </div>
         </section>
       </div>
