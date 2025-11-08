@@ -22,9 +22,9 @@ export default function HorizontalProductCard({ product }: HorizontalProductCard
   };
 
   return (
-    <div onClick={handleClick} className="bg-white rounded-lg border border-gray-200 overflow-hidden w-[160px] shrink-0 cursor-pointer hover:shadow-md transition-shadow">
+    <div onClick={handleClick} className="bg-white rounded-lg border border-gray-200 overflow-hidden w-40 shrink-0 cursor-pointer hover:shadow-md transition-shadow">
       <div className="relative">
-        <ProductThumbnail product={product} className="w-full h-[160px]" />
+        <ProductThumbnail product={product} className="w-full h-40" />
         {hasNFT(product) && (
           <div className="absolute top-2 left-2">
             <NFTBadge />
