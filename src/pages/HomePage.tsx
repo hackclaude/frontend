@@ -7,6 +7,7 @@ import GridProductCard from '@/components/products/GridProductCard';
 import HorizontalProductCard from '@/components/products/HorizontalProductCard';
 import { useScrollToAnchor } from '@/hooks/useScrollToAnchor';
 import { mockProducts, categorySections } from '@/data/mockData';
+import { hasNFT, isLiked } from '@/utils/productUtils';
 
 export default function HomePage() {
   const [activeTab, setActiveTab] = useState('ai-recommend');
@@ -17,7 +18,7 @@ export default function HomePage() {
     scrollToAnchor(tabId);
   };
 
-  const nftVerifiedProducts = mockProducts.filter((p) => p.hasNFT);
+  const nftVerifiedProducts = mockProducts.filter((p) => hasNFT(p));
 
   return (
     <div className="-mx-4 -mt-4">
@@ -60,7 +61,7 @@ export default function HomePage() {
           <SectionHeader icon={Heart} title="찜한 상품" />
           <div className="grid grid-cols-2 gap-3 px-4">
             {mockProducts
-              .filter((p) => p.liked)
+              .filter((p) => isLiked(p))
               .map((product) => (
                 <GridProductCard key={product.id} product={product} />
               ))}
