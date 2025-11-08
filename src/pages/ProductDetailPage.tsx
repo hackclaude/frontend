@@ -72,8 +72,14 @@ export default function ProductDetailPage() {
   };
 
   const handleChat = () => {
-    // TODO: Implement chat functionality
-    console.log('채팅하기');
+    // Navigate to chat with product UUID
+    // In a real app with websocket, this would:
+    // 1. Check if a chat room exists with this seller for this product
+    // 2. If yes, navigate to that chat room
+    // 3. If no, create a new chat room and navigate to it
+    if (product?.uuid) {
+      navigate(`/chat/${product.uuid}`);
+    }
   };
 
   const handleViewSellerProfile = () => {

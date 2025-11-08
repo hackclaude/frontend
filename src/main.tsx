@@ -6,6 +6,7 @@ import ProductDetailPage from '@/pages/ProductDetailPage';
 import CategoryPage from '@/pages/CategoryPage';
 import AuthPage from '@/pages/AuthPage';
 import SearchPage from '@/pages/SearchPage';
+import ChatDetailPage from '@/pages/ChatDetailPage';
 import { navItems } from '@/constants/navigation';
 import './index.css';
 
@@ -32,6 +33,10 @@ const router = createBrowserRouter([
       {
         path: '/search',
         element: <SearchPage />,
+      },
+      {
+        path: '/chat/:uuid',
+        element: <ChatDetailPage />,
       },
     ],
   },
