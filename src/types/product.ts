@@ -1,11 +1,7 @@
-// Product status type (matches backend enum)
 export type ProductStatus = 'Available' | 'Sold';
 
-// Backend Product entity (matches TypeORM schema)
 export interface Product {
-  id: number;
   uuid: string;
-  group: string;
   category: string;
   name: string;
   description: string;
@@ -17,19 +13,31 @@ export interface Product {
   deleted_at: string | null;
 }
 
-// Product attributes stored in JSONB field
-export interface ProductAttributes {
-  // NFT related
-  hasNFT?: boolean;
-  verifiedBrand?: string;
-  nftTokenId?: string;
-  blockchainNetwork?: string;
+export interface UserProfile {
+  uuid: string;
+  name: string;
+  profileImageUrl?: string;
+}
 
-  // UI related (will be stored in backend too)
+export interface SellerInfo extends UserProfile {
+  totalSales?: number;
+}
+
+export interface UserInfo extends UserProfile {
+  totalPurchases?: number;
+  totalLikes?: number;
+}
+
+export interface ProductAttributes {
+  hasNFT?: boolean;
+
   thumbnailUrl?: string;
+  imageUrls?: string[];
   location?: string;
   liked?: boolean;
+  likesCount?: number;
 
-  // Other flexible attributes
+  seller?: SellerInfo;
+
   [key: string]: unknown;
 }

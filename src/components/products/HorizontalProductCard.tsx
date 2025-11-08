@@ -1,4 +1,5 @@
 import { Heart } from 'lucide-react';
+import { useNavigate } from 'react-router';
 import type { Product } from '@/types/product';
 import { hasNFT, isLiked } from '@/utils/productUtils';
 import NFTBadge from './NFTBadge';
@@ -9,8 +10,19 @@ interface HorizontalProductCardProps {
 }
 
 export default function HorizontalProductCard({ product }: HorizontalProductCardProps) {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate(`/product/${product.uuid}`, { viewTransition: true });
+  };
+
+  const handleLikeClick = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    // TODO: Implement like functionality
+  };
+
   return (
-    <div className="bg-white rounded-lg border border-gray-200 overflow-hidden w-[160px] shrink-0">
+    <div onClick={handleClick} className="bg-white rounded-lg border border-gray-200 overflow-hidden w-[160px] shrink-0 cursor-pointer hover:shadow-md transition-shadow">
       <div className="relative">
         <ProductThumbnail product={product} className="w-full h-[160px]" />
         {hasNFT(product) && (
@@ -18,7 +30,7 @@ export default function HorizontalProductCard({ product }: HorizontalProductCard
             <NFTBadge />
           </div>
         )}
-        <button type="button" className="absolute top-2 right-2 p-1.5 bg-white/90 rounded-full" aria-label="찜하기">
+        <button type="button" onClick={handleLikeClick} className="absolute top-2 right-2 p-1.5 bg-white/90 rounded-full hover:bg-white transition-colors" aria-label="찜하기">
           <Heart size={18} className={isLiked(product) ? 'fill-red-500 text-red-500' : 'text-gray-400'} />
         </button>
       </div>

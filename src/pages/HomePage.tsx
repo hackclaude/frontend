@@ -22,7 +22,7 @@ export default function HomePage() {
   };
 
   const handleNavigateToCategory = (categoryId: string) => {
-    navigate(`/category/${categoryId}`);
+    navigate(`/category/${categoryId}`, { viewTransition: true });
   };
 
   const nftVerifiedProducts = mockProducts.filter((p) => hasNFT(p));
@@ -37,7 +37,7 @@ export default function HomePage() {
           <SectionHeader icon={Bot} title="AI 기반 맞춤 추천" actionLabel="더보기" onActionClick={() => handleNavigateToCategory('ai-recommend')} />
           <div className="flex gap-3 px-4 overflow-x-auto scrollbar-hide">
             {mockProducts.map((product) => (
-              <HorizontalProductCard key={product.id} product={product} />
+              <HorizontalProductCard key={product.uuid} product={product} />
             ))}
           </div>
         </section>
@@ -48,7 +48,7 @@ export default function HomePage() {
           <p className="px-4 text-sm text-gray-600 mb-4">블록체인으로 검증된 100% 정품만 모아봤어요</p>
           <div className="grid grid-cols-2 gap-3 px-4">
             {nftVerifiedProducts.map((product) => (
-              <GridProductCard key={product.id} product={product} />
+              <GridProductCard key={product.uuid} product={product} />
             ))}
           </div>
         </section>
@@ -58,7 +58,7 @@ export default function HomePage() {
           <SectionHeader icon={Clock} title="최근 본 상품" />
           <div className="space-y-3 px-4">
             {mockProducts.slice(0, 3).map((product) => (
-              <ProductCard key={product.id} product={product} />
+              <ProductCard key={product.uuid} product={product} />
             ))}
           </div>
         </section>
@@ -70,7 +70,7 @@ export default function HomePage() {
             {mockProducts
               .filter((p) => isLiked(p))
               .map((product) => (
-                <GridProductCard key={product.id} product={product} />
+                <GridProductCard key={product.uuid} product={product} />
               ))}
           </div>
         </section>

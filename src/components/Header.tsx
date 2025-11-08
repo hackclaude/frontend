@@ -1,4 +1,4 @@
-import { Search, Bell, Sparkles } from 'lucide-react';
+import { Search, Sparkles } from 'lucide-react';
 import { Link, useLocation } from 'react-router';
 import { navItems } from '@/constants/navigation';
 
@@ -19,9 +19,6 @@ export default function Header() {
           <div className="flex items-center gap-3">
             <button type="button" className="p-2 text-gray-600 hover:text-gray-900 hover:bg-violet-50 rounded-full transition-colors" aria-label="검색">
               <Search size={22} />
-            </button>
-            <button type="button" className="p-2 text-gray-600 hover:text-gray-900 hover:bg-violet-50 rounded-full transition-colors" aria-label="알림">
-              <Bell size={22} />
             </button>
           </div>
         </div>

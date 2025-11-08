@@ -90,7 +90,7 @@ export default function CategoryPage() {
   }, [filteredProducts, sortOption]);
 
   const handleBack = () => {
-    navigate('/');
+    navigate('/', { viewTransition: true });
   };
 
   const toggleLayout = () => {
@@ -163,13 +163,13 @@ export default function CategoryPage() {
         ) : layoutMode === 'grid' ? (
           <div className="grid grid-cols-2 gap-3">
             {sortedProducts.map((product) => (
-              <GridProductCard key={product.id} product={product} />
+              <GridProductCard key={product.uuid} product={product} />
             ))}
           </div>
         ) : (
           <div className="space-y-3">
             {sortedProducts.map((product) => (
-              <ProductCard key={product.id} product={product} />
+              <ProductCard key={product.uuid} product={product} />
             ))}
           </div>
         )}

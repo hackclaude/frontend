@@ -41,9 +41,7 @@ export default function ProfilePage() {
       <div className="px-6 pt-8 pb-6 bg-white border-b border-gray-200">
         <div className="flex items-center gap-4 mb-6">
           <div className="relative">
-            <div className="w-20 h-20 rounded-full bg-linear-to-br from-violet-400 to-violet-600 flex items-center justify-center text-white text-2xl font-bold">
-              {isLoggedIn ? '홍' : 'G'}
-            </div>
+            <div className="w-20 h-20 rounded-full bg-linear-to-br from-violet-400 to-violet-600 flex items-center justify-center text-white text-2xl font-bold">{isLoggedIn ? '홍' : 'G'}</div>
             {isLoggedIn && (
               <button type="button" className="absolute bottom-0 right-0 w-7 h-7 bg-white rounded-full flex items-center justify-center border border-gray-200 shadow-sm" aria-label="프로필 사진 변경">
                 <Camera size={14} className="text-gray-600" />
@@ -60,8 +58,7 @@ export default function ProfilePage() {
         <button
           type="button"
           onClick={handleAuthAction}
-          className="w-full py-3 mb-4 bg-violet-600 text-white font-semibold rounded-lg hover:bg-violet-700 transition-colors flex items-center justify-center gap-2"
-        >
+          className="w-full py-3 mb-4 bg-violet-600 text-white font-semibold rounded-lg hover:bg-violet-700 transition-colors flex items-center justify-center gap-2">
           {isLoggedIn ? (
             <>
               <LogOut size={20} />
@@ -76,22 +73,24 @@ export default function ProfilePage() {
         </button>
 
         {/* 통계 정보 */}
-        <div className="flex items-center py-4 bg-gray-50 rounded-lg border border-gray-200">
-          <div className="flex-1 text-center">
-            <p className="text-lg font-bold text-gray-900">5</p>
-            <p className="text-xs text-gray-600 mt-1">판매</p>
+        {isLoggedIn && (
+          <div className="flex items-center py-4 bg-gray-50 rounded-lg border border-gray-200">
+            <div className="flex-1 text-center">
+              <p className="text-lg font-bold text-gray-900">5</p>
+              <p className="text-xs text-gray-600 mt-1">판매</p>
+            </div>
+            <div className="w-px h-8 bg-gray-300" />
+            <div className="flex-1 text-center">
+              <p className="text-lg font-bold text-gray-900">12</p>
+              <p className="text-xs text-gray-600 mt-1">구매</p>
+            </div>
+            <div className="w-px h-8 bg-gray-300" />
+            <div className="flex-1 text-center">
+              <p className="text-lg font-bold text-gray-900">8</p>
+              <p className="text-xs text-gray-600 mt-1">찜</p>
+            </div>
           </div>
-          <div className="w-px h-8 bg-gray-300" />
-          <div className="flex-1 text-center">
-            <p className="text-lg font-bold text-gray-900">12</p>
-            <p className="text-xs text-gray-600 mt-1">구매</p>
-          </div>
-          <div className="w-px h-8 bg-gray-300" />
-          <div className="flex-1 text-center">
-            <p className="text-lg font-bold text-gray-900">8</p>
-            <p className="text-xs text-gray-600 mt-1">찜</p>
-          </div>
-        </div>
+        )}
       </div>
 
       {/* 내 상품 관리 섹션 */}

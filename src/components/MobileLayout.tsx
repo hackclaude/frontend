@@ -17,7 +17,7 @@ export default function MobileLayout() {
     <div className="min-h-screen bg-zinc-200 flex justify-center">
       <div className="w-full max-w-[480px] min-h-screen bg-(--bg-color) relative">
         {!headerHidden && <Header />}
-        <main className="pb-16 p-4">
+        <main className={`p-4 pb-${bottomNavHidden ? '0' : '16'}`}>
           <Outlet context={context} />
         </main>
         {!bottomNavHidden && <BottomNav />}

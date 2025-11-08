@@ -1,12 +1,14 @@
 import { useState, useEffect } from 'react';
-import { Sparkle } from 'lucide-react';
+import { ChevronLeft, Sparkle } from 'lucide-react';
 import LoginForm from '@/components/auth/LoginForm';
 import SignupForm from '@/components/auth/SignupForm';
 import { useLayoutContext } from '@/hooks/useLayoutContext';
+import { useNavigate } from 'react-router';
 
 export default function AuthPage() {
   const [mode, setMode] = useState<'login' | 'signup'>('login');
   const { hideHeader, hideBottomNav } = useLayoutContext();
+  const navigate = useNavigate();
 
   // Hide header and bottom nav when component mounts, show them when unmounts
   useEffect(() => {
@@ -18,9 +20,20 @@ export default function AuthPage() {
     };
   }, [hideHeader, hideBottomNav]);
 
+  const handleBack = () => {
+    navigate(-1);
+  };
+
   return (
-    <div className="-m-4 min-h-screen bg-zinc-200 flex justify-center">
+    <div className="-mx-4 -mt-4 min-h-screen">
       <div className="w-full max-w-[480px] min-h-screen bg-white flex flex-col">
+        {/* Back Button Header */}
+        <div className="px-4 py-3 border-b border-gray-200 flex items-center min-h-16">
+          <button type="button" onClick={handleBack} className="text-gray-600 hover:text-gray-900" aria-label="뒤로 가기">
+            <ChevronLeft size={24} />
+          </button>
+        </div>
+
         {/* Header */}
         <div className="pt-12 pb-8 px-6 text-center">
           <div className="flex justify-center mb-4">
