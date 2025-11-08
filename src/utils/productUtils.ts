@@ -8,13 +8,6 @@ export function hasNFT(product: Product): boolean {
 }
 
 /**
- * Product에서 검증된 브랜드 정보 가져오기
- */
-export function getVerifiedBrand(product: Product): string | undefined {
-  return product.attributes?.verifiedBrand;
-}
-
-/**
  * Product에서 썸네일 URL 가져오기
  */
 export function getThumbnailUrl(product: Product): string | undefined {
