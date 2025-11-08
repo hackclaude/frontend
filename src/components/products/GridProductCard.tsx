@@ -1,29 +1,18 @@
 import { Heart } from 'lucide-react';
 import type { Product } from '@/types/product';
-import { hasNFT, getThumbnailUrl, getLocation, isLiked } from '@/utils/productUtils';
+import { hasNFT, getLocation, isLiked } from '@/utils/productUtils';
 import NFTBadge from './NFTBadge';
+import ProductThumbnail from './ProductThumbnail';
 
 interface GridProductCardProps {
   product: Product;
 }
 
 export default function GridProductCard({ product }: GridProductCardProps) {
-  const isSold = product.status === 'Sold';
-
   return (
     <div className="bg-white rounded-lg border border-gray-200 overflow-hidden">
       <div className="relative">
-        <img
-          src={getThumbnailUrl(product)}
-          alt={product.name}
-          className="w-full aspect-square object-cover"
-          style={{ opacity: isSold ? 0.5 : 1 }}
-        />
-        {isSold && (
-          <div className="absolute inset-0 flex items-center justify-center">
-            <span className="text-sm font-bold text-gray-900 bg-white px-3 py-1.5 rounded">판매완료</span>
-          </div>
-        )}
+        <ProductThumbnail product={product} className="w-full aspect-square" />
         {hasNFT(product) && (
           <div className="absolute top-2 left-2">
             <NFTBadge />
